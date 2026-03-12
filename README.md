@@ -1,14 +1,14 @@
-# S1gnvers3
+# FULCRUM
 
-**ASL-to-Text-to-Speech & Image-Captioning-to-Speech — A Dual Assistive Communication System**
+**Framework for Unified Linguistic Captioning, Recognition, and User-assistive Modelling**
 
-S1gnvers3 is a dual-purpose assistive technology system built to address two distinct but complementary communication barriers. The first component targets individuals who are deaf or hard of hearing: it recognizes American Sign Language (ASL) gestures in real time — ranging from static fingerspelled alphabets to dynamic word-level signs — and converts them into spoken English so that a non-signing listener can understand the signer without any knowledge of ASL. The second component targets individuals who are blind or visually impaired: it captures a live camera feed of the user's environment, generates a natural-language description of the scene using image captioning, and reads it aloud so the user receives a continuous auditory understanding of their surroundings. Both components converge on a shared text-to-speech output layer, making S1gnvers3 a unified perception-to-speech framework for accessibility.
+FULCRUM is a dual-purpose assistive technology system built to address two distinct but complementary communication barriers. The first component targets individuals who are deaf or hard of hearing: it recognizes American Sign Language (ASL) gestures in real time — ranging from static fingerspelled alphabets to dynamic word-level signs — and converts them into spoken English so that a non-signing listener can understand the signer without any knowledge of ASL. The second component targets individuals who are blind or visually impaired: it captures a live camera feed of the user's environment, generates a natural-language description of the scene using image captioning, and reads it aloud so the user receives a continuous auditory understanding of their surroundings. Both components converge on a shared text-to-speech output layer, making FULCRUM a unified perception-to-speech framework for accessibility.
 
 ---
 
 ## High-Level System Architecture
 
-S1gnvers3 is structured as two parallel perception-to-speech pipelines that operate independently but share a common TTS output stage. Each pipeline takes a live camera feed as input, applies a domain-specific perception model (gesture recognition or scene understanding), produces an intermediate text representation, and converts that text to speech. The two pipelines are designed to be deployable separately or together depending on the user's needs.
+FULCRUM is structured as two parallel perception-to-speech pipelines that operate independently but share a common TTS output stage. Each pipeline takes a live camera feed as input, applies a domain-specific perception model (gesture recognition or scene understanding), produces an intermediate text representation, and converts that text to speech. The two pipelines are designed to be deployable separately or together depending on the user's needs.
 
 ```mermaid
 graph TB
@@ -51,7 +51,7 @@ graph TB
 
 ## Part 1 — ASL Recognition to Speech (For Hearing-Impaired Users)
 
-The first component of S1gnvers3 addresses the communication barrier faced by deaf and hard-of-hearing individuals when interacting with people who do not understand ASL. The system observes the signer through a camera, interprets their gestures, converts the recognized signs into English text, and speaks the text aloud. This component is developed in two phases: Phase 1 handles static fingerspelled alphabets and digits (individual hand poses held still), and Phase 2 extends to dynamic word-level signs that involve motion over time.
+The first component of FULCRUM addresses the communication barrier faced by deaf and hard-of-hearing individuals when interacting with people who do not understand ASL. The system observes the signer through a camera, interprets their gestures, converts the recognized signs into English text, and speaks the text aloud. This component is developed in two phases: Phase 1 handles static fingerspelled alphabets and digits (individual hand poses held still), and Phase 2 extends to dynamic word-level signs that involve motion over time.
 
 ### Phase 1: Static Alphabet Recognition (Implemented)
 
@@ -317,7 +317,7 @@ graph TD
 
 ### Problem Formulation and Use Case
 
-The second component of S1gnvers3 addresses the information access barrier faced by blind and visually impaired individuals. The core idea is to provide a continuous, hands-free auditory description of the user's visual environment: what objects are present, where they are, what is happening, and what the scene looks like. This is achieved by capturing frames from a live camera (mounted on a smartphone, wearable, or placed in a fixed location), running object detection and image captioning models to generate a natural-language description, and converting that description to speech.
+The second component of FULCRUM addresses the information access barrier faced by blind and visually impaired individuals. The core idea is to provide a continuous, hands-free auditory description of the user's visual environment: what objects are present, where they are, what is happening, and what the scene looks like. This is achieved by capturing frames from a live camera (mounted on a smartphone, wearable, or placed in a fixed location), running object detection and image captioning models to generate a natural-language description, and converting that description to speech.
 
 The pipeline can be decomposed into four stages: **frame capture** from the camera, **object detection** to identify and localize objects in the scene, **visual feature encoding** to extract a rich representation of the scene, **caption decoding** to generate a natural-language sentence from those features, and **TTS output** to speak the caption. Object detection and feature encoding can operate independently or feed into each other depending on the architecture.
 
@@ -514,7 +514,7 @@ For higher-quality speech output, cloud-based TTS services like Google Text-to-S
 ## Repository Structure
 
 ```
-S1gnvers3/
+FULCRUM/
 ├── requirements.txt
 ├── README.md
 └── Static Alphabet Recognition/
@@ -537,8 +537,8 @@ S1gnvers3/
 
 ```bash
 # Clone the repository
-git clone https://github.com/InvictusRex/S1gnvers3.git
-cd S1gnvers3
+git clone https://github.com/InvictusRex/FULCRUM.git
+cd FULCRUM
 
 # Create and activate a virtual environment (recommended)
 python -m venv venv
